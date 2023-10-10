@@ -5,6 +5,10 @@
  * Copyright 2014-2021 Froala Labs
  */
 
+.rounded {
+  border-radius: 8px;
+}
+
 .fr-clearfix::after {
     clear: both;
     display: block;
