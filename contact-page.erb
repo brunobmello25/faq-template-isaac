@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <div class="breadcrumbs">
+    <a href="/">Support Home</a>
+    <i class="licon-arrowright"></i>
+    <span>Contact Us</span>
+  </div>
+</div>
+
+<div class="contact_form">
+
+  <form accept-charset='UTF-8' action='/questions' class='form floating-labels' id='new_question' method='post'>
+    <fieldset>
+        <legend>Sorry, we didn't find any relevant articles for you.</legend>
+      
+        <p>Please fill out the contact form below and we will reply as soon as possible.</p>
+      
+        <!-- Don't modify or delete this below -->
+        {{csrf_token}}
+        <input type='hidden' value='{{account.id}}' name='question[account_id]' id='question_account_id'>
+            
+        <div class="icon">
+          <label class="label" for="question_email">Your email</label>
+          <input class="email" type="email" name='question[email]' id='question_email' required>
+        </div> 
+        
+        <div class="icon">
+          <label class="label" for="question_name">{{ contact_query | escape }}</label>
+          <input type="text" class="message" placeholder='' name='question[name]' id='question_name' required>
+        </div> 
+        
+        <div class="icon">
+          <label class="label" for="textarea">Description (details)</label>
+          <textarea class="message" type='text' name='question[description]' id='question_description'></textarea>
+        </div>
+        
+        {{ captcha_verification }}
+      
+        <div>
+          <input type="submit" id='question_submit' name='commit' value="Contact Support" class="button">
+        </div>
+        
+        <!-- Want to add custom fields to your form (such as: account_id) and have them included when the user contacts support? Max three custom fields -->
+        <!-- <input type="text" name='question[custom_fields][favorite_car]' id='question[custom_fields][favorite_car]' value='Whats your favorite car?'> -->
+            
+    </fieldset>
+  </form>
+
+</div>

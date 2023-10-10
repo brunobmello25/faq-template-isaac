@@ -1,0 +1,104 @@
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Helpjuice – 404</title>
+  <style type="text/css">
+    html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+
+    body{
+      line-height: 2.2em;
+      background: #44a4f8;
+      font-family: Helvetica, Arial, Verdana;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .error{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 700px;
+      margin-left: -350px;
+      margin-top: -150px;
+      text-align: center;
+    }
+
+    .error .umbrella{
+      background: url('https://s3.amazonaws.com/helpjuice-farm/oops.png');
+      width: 218px;
+      height: 218px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .error .text{
+      display: inline-block;
+      margin-left: 50px;
+      color: white;
+      width: 400px;
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    .error .text h1{
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .error .text p{
+      margin: 15px 0px;
+      color: #bedce8;
+      font-size: 19px;
+    }
+
+    .error .text p small{
+      font-size: 80%;
+    }
+
+    .error .text a{
+      color: inherit;
+    }
+
+    .status{
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-weight: bold;
+      font-size: 11px;
+      color: #bedce8;
+      line-height: 1em;
+    }
+
+    .text-large {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body class="error_body" cz-shortcut-listen="true">
+  <div class="status">404</div>
+
+  <div class="error">
+    <div class="umbrella"></div>
+    <div class="text">
+    <h1>4o’4!</h1>
+    <p>
+      We could not find what you're looking for.
+    </p>
+
+    {% if questions %}
+      <p>Maybe you are looking for this page?</p>
+
+      <ul>
+        {% for question in questions %}
+          <li><a href="{{ question.url }}" class="text-large">{{ question.name }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <p>Or you can go back to <a href="/">Home Page</a></p>
+    {% else %}
+      <p>Go back to <a href="/">Home Page</a></p>
+    {% endif %}
+    </div>
+  </div>
+</body>
+</html>
+

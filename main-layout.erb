@@ -1,0 +1,233 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% if question %}{{account.name}} &mdash; {{ question.name }}{% else %}{{account.name}} Support{% endif %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    
+    
+    {% if on_show_question_page %}
+        <meta name="description" content="{{ question.long_answer_sample | slice: 0, 155 }}" />
+        <meta property="og:description" content="{{ question.long_answer_sample | slice: 0, 155 }}" />
+    {% elsif on_contact_us_page %}
+        <meta name="description" content="Get in touch with {{ account.name }}." />
+        <meta property="og:description" content="Get in touch with {{ account.name }}." />
+    {% elsif on_index_page %}
+        <meta name="description" content="{{ account.name }} Support Center helps you to find FAQ, how-to guides and step-by-step tutorials." />
+        <meta property="og:description" content="{{ account.name }} Support Center helps you to find FAQ, how-to guides and step-by-step tutorials." />
+    {% elsif category == null %}
+        <meta name="description" content="{{ account.name }} Support Center helps you to find FAQ, how-to guides and step-by-step tutorials." />
+        <meta property="og:description" content="{{ account.name }} Support Center helps you to find FAQ, how-to guides and step-by-step tutorials." />
+    {% else %}
+        <meta name="description" content="{{ account.name }} Support Center helps you to find FAQ, how-to guides and step-by-step tutorials." />
+        <meta property="og:description" content="{{ account.name }} Support Center helps you to find FAQ, how-to guides and step-by-step tutorials."/>
+    {% endif %}
+    
+    
+    <meta name="keywords" content="">
+    
+    <!-- insert your favicon and uncomment -->
+	<link rel="shortcut icon" type="image/*" href="https://payment.olaisaac.io/favicon.png" />
+    
+    <link href='/assets/main.css' media='screen' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700,600,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <link href="https://s3.amazonaws.com/assets.helpjuice.com/fontawesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/knowledgebase.css">
+    <script src="/knowledgebase.js" defer></script>
+  </head>
+  <body class="{% if on_show_question_page %}question_page{% elsif on_contact_us_page %}contact_us{% elsif category == null %}landing_page{% else %}category_page{% endif %} fontfix">
+
+    <header class="header js_header_nav {% if on_show_question_page == true or category != null %}inner_header{% endif %}">
+      <nav class="header_nav clearfix">
+        <div class="wrapper">
+          <a href="/" class="header_nav_logo ir"></a>
+          <ul class="header_nav_buttons">
+            <li><button class="header_nav_button iconf-search js_header_button"><span class="ir">Search</span></button></li>
+            <li><button class="header_nav_button iconf-menu js_header_button"><span class="ir">Navigation</span></button></li>
+          </ul>
+          <!-- top navigation -->
+          <ul class="header_nav_links header_nav_section">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li><a href="/">Support</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="wrapper">
+        {% if category == null and on_show_question_page != true %}
+          <h1 class="header_home_intro">How can we help?</h1>
+        {% endif %}
+        <div class="search_block header_nav_section">
+          <form autocomplete="off">
+            <i class="licon-magnifier"></i><input id="search" name="search" size="30" type="text" autocomplete="off" placeholder="Search our knowledge base..." />
+          </form>
+        </div>
+        <p class="common-searches">Popular topics: 
+        {% for question in top_questions limit: 2 %}
+          <a href="{{ question.url }}">{{ question.name }}</a> 
+        {% endfor %}
+        </p>
+      </div>
+    </header>
+
+    <article id="search_results">
+      <div class="page_title">
+        <div class="wrapper">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="wrapper" id="results"> 
+        <div class="grid grid_is_centered page_is_list">
+          <div class="grid_item page_content">
+            <ul class="list search-results">
+              <!-- load search results here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="wrapper hidden" id="no-results">
+          <div class="no-results-wrap js_equalise_is_landing">
+            <!-- if no results found => show contact form -->
+          
+              <div class="contact_form">
+
+                  <form accept-charset='UTF-8' action='/questions' class='form floating-labels' id='new_question' method='post'>
+                  
+                    <fieldset>
+                    
+                      <legend>Sorry, we didn't find any relevant articles for you.</legend>
+                      
+                      <p>Please fill out the contact form below and we will reply as soon as possible.</p>
+                      
+                      <!-- Don't modify or delete this below -->
+                      {{csrf_token}}
+                      <input type='hidden' value='{{account.id}}' name='question[account_id]' id='question_account_id'>
+                      
+                      <div class="icon">
+                        <label class="label" for="question_email">Your email</label>
+                        <input class="email" type="email" name='question[email]' id='question_email' required>
+                      </div> 
+                        
+                      <div class="icon">
+                        <label class="label" for="question_name">Your question</label>
+                        <input type="text" class="message" placeholder='' name='question[name]' id='question_name' required>
+                      </div> 
+                        
+                      <div class="icon">
+                        <label class="label" for="textarea">Description (details)</label>
+                        <textarea class="message" type='text' name='question[description]' id='question_description'></textarea>
+                      </div>
+                      
+                      {{ captcha_verification }}
+                      
+                      <div>
+                        <input type="submit" id='question_submit' name='commit' value="Contact Support" class="button">
+                      </div>
+                      
+                    </fieldset>
+                    
+                </form>
+            
+              </div>
+          </div>
+      </div>
+    </article>
+
+    <article id="page_content">
+      <div class="page_title">
+        <div class="wrapper">
+          <h1></h1>
+        </div>
+        
+      </div>
+
+      {% if category == null and on_show_question_page != true %}
+      {% else %}
+      <div class="wrapper">
+      {% endif %}
+        {% if on_show_question_page %}
+          <div class="grid grid_is_level_3 page_is_level_3 js_grid">
+          
+            <div class="grid_item l_one_quarter grid_item_is_sidebar js_subnav_container" data-set="subnav">
+              <div class="subnav" id="js_subnav">
+                <h3 class="text_impact subnav_heading">Table of Contents</h3>
+                <ul class="grid subnav_list js_subnav_list">
+                <!-- load Quick Navigation here -->
+                </ul>
+              </div>
+            </div>
+            
+            <div id="js_page_content" class="grid_item one_whole l_five_sixths page_content text_block">
+
+        {% endif %}
+        
+        {% if on_contact_us_page %}
+        {% else %}
+        <div class="breadcrumbs">
+          {% if breadcrumb_root %}
+            <a href="/">Support Home</a>
+              {% for breadcrumb in breadcrumb_root %}
+                <i class="licon-arrowright"></i>
+                <a href="{{breadcrumb.url}}">{{breadcrumb.name}}</a>
+              {% endfor %}
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {{ content_for_layout }}
+
+        {% if on_show_question_page %}
+          </div>
+        </div>
+        {% endif %}
+        
+      {% if category == null and on_show_question_page != true %}
+      {% else %}
+      </div>
+      {% endif %}
+      
+    </article>
+    
+    <section class="contact_us_section">
+      <div class="wrapper">
+        <h1>Can’t find what you’re looking for?</h1>
+        <p>Our award-winning customer care team is here for you.</p>
+        <a href="/contact-us?contact_query=Please%20enter%20your%20question" class="button">Contact Support</a>
+      </div>
+    </section>
+
+    <footer class="footer clearfix">
+      <div class="wrapper">
+        <div class="footer_inner">
+          <p>&copy; Copyright 2016</p>
+          <div class="footer_right_links">
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- To show URLs in iframe -->
+    {{ javascript_includes }}
+    <script src='/assets/easyxdm/easyxdm.min.js'></script>
+    <script src='/assets/questions_widget.js'></script>
+    
+    <!-- Helpjuice JavaScript files -->
+    <!--[if lte IE 9]><script src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/1856/14896/match.media.combined.js"></script><![endif]-->
+    {{ responsivemenu_js }}
+    {{ typewatch_js }}
+    {{ questions_js }}
+    {{ contactform_js }}
+    {{ decision_trees_js }}
+    {{ default_main_js }}
+
+    <!-- End of Helpjuice JavaScript files -->
+    
+  </body>
+</html>
+

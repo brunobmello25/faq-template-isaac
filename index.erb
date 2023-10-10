@@ -1,0 +1,21 @@
+<section class="g-row big-list common-questions">
+  <div class="wrapper">
+    <ul>
+    {% for category in roots_categories %}
+      <li class="kb">
+        <a href="{{ category.url }}">
+          <span class="category_icon icon-{{ category.name | downcase | remove:'?' | remove:',' | remove:'.' | remove:':' | remove:';' | replace:' ','-' | replace:"'",'' | replace:'&','and' }}"></span>
+          <h5>{{ category.name }}</h5>
+          
+            {% if category.description.size > 0 %}
+              <p>{{ category.description }}</p>
+            {% else %}
+              <p>We're a new category, with lots of useful information.</p>
+            {% endif %}
+          
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>

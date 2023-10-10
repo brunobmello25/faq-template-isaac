@@ -1,0 +1,55 @@
+<h1 class="question_title">{{ question.name }}</h1>
+
+{% if question.description.size > 1 %}
+  <p class="question-description">
+    {{ question.description }}
+  </p>
+{% endif %}
+
+<div class="fr-view" data-controller="glossary" data-glossary-url-value="/glossary_terms.json">
+    {% if question.toc.size > 0 %}
+        <div class="helpjuice-table-of-contents-container">
+            <p>Table of Contents</p>
+            <div class="helpjuice-toc-items">
+                {% for item in question.toc %}
+                    <a href="{{ item.id }}" data-tag-name="{{item.tagName}}">{{ item.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    {{ question.answers.first.cleaned_body }}
+</div>
+
+<!-- If it's a quesiton, show the 'was this helpful' -->
+<div class="was-this-helpful">
+  <form accept-charset="UTF-8" action="/questions/{{question.id}}/feedbacks" class="new_feedback" id="new_feedback" method="post">
+    <div style="margin:0;padding:0;display:inline">
+      <input name="authenticity_token" type="hidden" value="W7fIKyhlMGSYY6ZpNZ0EjAuXfvwpXGjx8KK7p9liJk0=">
+    </div>
+
+    <input id="feedback_score" name="feedback[score]" type="hidden" value="0">
+
+    <h4>Was this article helpful? </h4> 
+
+    <a href="#" id="yes" class="response feedback"><span>{{question.positive_votes}}</span></a>
+    <a href="#" id="no" class="response feedback"><span>{{question.negative_votes}}</span></a>
+  </form>
+</div> 
+
+<!-- Related questions -->
+{% if question.related_questions %}
+<div class='related-questions'>
+  <h4>Related Questions: </h4>
+  <ul>
+
+    {% for question in question.related_questions limit:3 %}
+    <li class="grid_item one_whole s_one_half m_one_third">
+      <a href='{{question.url}}'>{{question.name}}</a>
+      <p class="list_content">{{question.answer_sample  | truncatewords:10 }}&hellip;</p>
+    </li>
+    {% endfor %}
+
+  </ul>
+</div>
+{% endif %}
+

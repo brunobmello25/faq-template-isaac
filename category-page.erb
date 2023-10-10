@@ -1,0 +1,54 @@
+<h1 class="category-name">{{ subcategory.name }}{{ category.name }}</h1>
+    
+<section class="g-row category-index">
+
+    <div class="grid">
+        <div class="g-col">
+          <ol class="guide-list">
+            {% for question in category.published_questions %}
+              <li>
+                <a href="{{ question.url }}">
+                  <h3>{{ question.name }}</h3>
+                  <p>{{ question.long_answer_sample | truncatewords:19 }}</p>
+                </a>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+    </div>
+
+</section>
+
+<section class="g-row category-list big-list">
+    
+    <ul>
+    {% for subcategory in subcategories %}
+      <li class="{{ category.name | downcase | remove:'?' | remove:',' | remove:'.' | remove:':' | remove:';' | replace:' ','-' | replace:"'",'' | replace:'&','and' }}">
+        <a href="{{ subcategory.url }}">
+        <span class="subcategory_icon icon-{{ subcategory.name | downcase | remove:'?' | remove:',' | remove:'.' | remove:':' | remove:';' | replace:' ','-' | replace:"'",'' | replace:'&','and' }}"></span>
+        <h3>{{subcategory.name}}</h3>
+        
+        {% if subcategory.name == "Getting Started" %}
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% elsif subcategory.name == "Type Category Name Here" %}
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% elsif subcategory.name == "" %}
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% elsif subcategory.name == "" %}
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% elsif subcategory.name == "" %}
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% elsif subcategory.name == "" %}
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% elsif subcategory.name == "" %}
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% else %} <!-- default text -->
+          <p>We're a new subcategory, with lots of useful information.</p>
+        {% endif %}
+        
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+
+</section>
