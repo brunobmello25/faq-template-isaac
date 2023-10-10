@@ -1237,7 +1237,7 @@ body {
     display: none;
     margin-top: 120px;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left;
     font-size: 80px;
     font-weight: 200;
     color: #222;
@@ -1295,7 +1295,7 @@ body {
         border: none
     }
     .header .search_block {
-        margin: 36px auto 0
+        margin: 36px 0
     }
     .header_nav_links li:first-child {
         border-left-width: 0
@@ -1881,7 +1881,7 @@ body {
     display: block;
     margin: 40px 0 0;
     padding: 0;
-    text-align: center;
+    text-align: left;
     font-size: 17px;
     letter-spacing: .5px;
     color: #777
