@@ -9,7 +9,7 @@
 <div class="fr-view" data-controller="glossary" data-glossary-url-value="/glossary_terms.json">
     {% if question.toc.size > 0 %}
         <div class="helpjuice-table-of-contents-container">
-            <p>Table of Contents</p>
+            <p>Índice</p>
             <div class="helpjuice-toc-items">
                 {% for item in question.toc %}
                     <a href="{{ item.id }}" data-tag-name="{{item.tagName}}">{{ item.name }}</a>
