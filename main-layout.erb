@@ -52,21 +52,21 @@
           </ul>
           <!-- top navigation -->
           <ul class="header_nav_links header_nav_section">
-            <li><a href="javascript:void(0);">Home</a></li>
-            <li><a href="/">Support</a></li>
+            <li><a href="javascript:void(0);">PÃ¡gina inicial</a></li>
+            <!--<li><a href="/">Support</a></li>-->
           </ul>
         </div>
       </nav>
       <div class="wrapper">
         {% if category == null and on_show_question_page != true %}
-          <h1 class="header_home_intro">How can we help?</h1>
+          <h1 class="header_home_intro">Como podemos ajudar?</h1>
         {% endif %}
         <div class="search_block header_nav_section">
           <form autocomplete="off">
-            <i class="licon-magnifier"></i><input id="search" name="search" size="30" type="text" autocomplete="off" placeholder="Search our knowledge base..." />
+            <i class="licon-magnifier"></i><input id="search" name="search" size="30" type="text" autocomplete="off" placeholder="Pesquise o que vocÃª precisa saber" />
           </form>
         </div>
-        <p class="common-searches">Popular topics: 
+        <p class="common-searches">Artigos em alta:
         {% for question in top_questions limit: 2 %}
           <a href="{{ question.url }}">{{ question.name }}</a> 
         {% endfor %}
@@ -101,33 +101,33 @@
                   
                     <fieldset>
                     
-                      <legend>Sorry, we didn't find any relevant articles for you.</legend>
+                      <legend>Que tal sugerir esse conteÃºdo para gente.</legend>
                       
-                      <p>Please fill out the contact form below and we will reply as soon as possible.</p>
+                      <p>Ao enviar sua sugestÃ£o, vocÃª ajuda a aprimorar a Central de Ajuda da Plataforma isaac!</p>
                       
                       <!-- Don't modify or delete this below -->
                       {{csrf_token}}
                       <input type='hidden' value='{{account.id}}' name='question[account_id]' id='question_account_id'>
                       
                       <div class="icon">
-                        <label class="label" for="question_email">Your email</label>
+                        <label class="label" for="question_email">Seu e-mail</label>
                         <input class="email" type="email" name='question[email]' id='question_email' required>
                       </div> 
                         
                       <div class="icon">
-                        <label class="label" for="question_name">Your question</label>
+                        <label class="label" for="question_name">Tema de sugestÃ£o</label>
                         <input type="text" class="message" placeholder='' name='question[name]' id='question_name' required>
                       </div> 
                         
                       <div class="icon">
-                        <label class="label" for="textarea">Description (details)</label>
+                        <label class="label" for="textarea">Detalhes da sugestÃ£o.</label>
                         <textarea class="message" type='text' name='question[description]' id='question_description'></textarea>
                       </div>
                       
                       {{ captcha_verification }}
                       
                       <div>
-                        <input type="submit" id='question_submit' name='commit' value="Contact Support" class="button">
+                        <input type="submit" id='question_submit' name='commit' value="Enviar sugestÃ£o" class="button">
                       </div>
                       
                     </fieldset>
@@ -171,7 +171,6 @@
         {% else %}
         <div class="breadcrumbs">
           {% if breadcrumb_root %}
-            <a href="/">Support Home</a>
               {% for breadcrumb in breadcrumb_root %}
                 <i class="licon-arrowright"></i>
                 <a href="{{breadcrumb.url}}">{{breadcrumb.name}}</a>
@@ -196,9 +195,9 @@
     
     <section class="contact_us_section">
       <div class="wrapper">
-        <h1>Can’t find what you’re looking for?</h1>
-        <p>Our award-winning customer care team is here for you.</p>
-        <a href="/contact-us?contact_query=Please%20enter%20your%20question" class="button">Contact Support</a>
+        <h1>NÃ£o encontrou o que procurava?</h1>
+        <p>Que tal sugerir este conteÃºdo pra gente?</p>
+        <a href="/contact-us?contact_query=Please%20enter%20your%20question" class="button">Enviar sugestÃ£o</a>
       </div>
     </section>
 
@@ -224,7 +223,7 @@
     {{ questions_js }}
     {{ contactform_js }}
     {{ decision_trees_js }}
-    {{ default_main_js }}
+    {{ main_js }}
 
     <!-- End of Helpjuice JavaScript files -->
     

@@ -29,7 +29,7 @@
 
     <input id="feedback_score" name="feedback[score]" type="hidden" value="0">
 
-    <h4>Was this article helpful? </h4> 
+    <h4>Esse artigo foi Ãºtil? </h4> 
 
     <a href="#" id="yes" class="response feedback"><span>{{question.positive_votes}}</span></a>
     <a href="#" id="no" class="response feedback"><span>{{question.negative_votes}}</span></a>
@@ -39,7 +39,7 @@
 <!-- Related questions -->
 {% if question.related_questions %}
 <div class='related-questions'>
-  <h4>Related Questions: </h4>
+  <h4>Artigos Relacionados </h4>
   <ul>
 
     {% for question in question.related_questions limit:3 %}

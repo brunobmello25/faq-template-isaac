@@ -1081,7 +1081,7 @@ body {
 }
 
 .category_page .header {
-    background: $theme_color url($back_image_url) no-repeat center 90%;
+    background: $theme_color;
     background-size: cover;
 }
 
@@ -1093,7 +1093,7 @@ body {
 
 .header_nav_logo {
     float: left;
-    width: 186px;
+    width: 120px;
     height: 34.5px;
     margin-bottom: 20px;
     margin-top: 15px;
@@ -1252,7 +1252,7 @@ body {
         padding-bottom: 130px
     }
     .header_nav_logo {
-        width: 248px;
+        width: 120px;
         height: 46px;
         margin: 0;
         background-image: url($brand_image_url);
@@ -1535,7 +1535,7 @@ body {
     .category_page .header .search_block,
     .question_page .header .search_block,
     .contact_us .header .search_block {
-        margin: 50px auto 0
+        margin: 50px 0 0;
     }
     .search_block {
         display: block;
@@ -1904,7 +1904,18 @@ body {
 
 .common-questions {
     background-color: $background_color;
-    padding: 60px 0
+    padding: 60px 0;
+    
+    .wrapper{
+        ul{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            li{
+                width: 360px;
+            }
+        }    
+    }
 }
 
 .big-list ul {
@@ -1924,8 +1935,8 @@ body {
 
 .common-questions ul li {
     display: inline-block;
-    width: 30%;
-    margin: 0 2% 0 0;
+    width: 360%;
+    margin: 0 1% 0 0;
     vertical-align: top;
     line-height: 1.5;
     -webkit-box-sizing: border-box;
@@ -2353,7 +2364,7 @@ pre {
 .category_page .common-searches,
 .category_page .header_nav_links a,
 .category_page .common-searches a {
-    color: #fff
+    color: #000;
 }
 
 .big-list h1,
@@ -2883,7 +2894,8 @@ pre {
 .form .icon input,
 .form .icon select,
 .form .icon textarea {
-    padding-left: 54px!important
+    padding-left: 54px!important;
+    padding: 8px 8px 8px 54px !important;
 }
 
 .form .user {
@@ -2903,6 +2915,7 @@ pre {
 }
 
 .form .message {
+    top: 0px !important;
     background: url(https://s3.amazonaws.com/helpjuice_production/uploads/upload/image/1856/14902/icon-message.svg) no-repeat 16px 16px
 }
 
@@ -2946,7 +2959,7 @@ pre {
         margin-top: 16px
     }
     .js .floating-labels .label {
-        top: 20px
+        top: 10px
     }
 }
 
