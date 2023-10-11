@@ -2,7 +2,7 @@
   <div class="breadcrumbs">
     <a href="/">Support Home</a>
     <i class="licon-arrowright"></i>
-    <span>Contact Us</span>
+    <span>Sugerir conteúdo</span>
   </div>
 </div>
 
@@ -10,16 +10,16 @@
 
   <form accept-charset='UTF-8' action='/questions' class='form floating-labels' id='new_question' method='post'>
     <fieldset>
-        <legend>Sorry, we didn't find any relevant articles for you.</legend>
+        <legend>Que tal sugerir esse conteúdo para gente?</legend>
       
-        <p>Please fill out the contact form below and we will reply as soon as possible.</p>
+        <p>Ao enviar sua sugestão, você ajuda a aprimorar a Central de Ajuda da Plataforma isaac!</p>
       
         <!-- Don't modify or delete this below -->
         {{csrf_token}}
         <input type='hidden' value='{{account.id}}' name='question[account_id]' id='question_account_id'>
             
         <div class="icon">
-          <label class="label" for="question_email">Your email</label>
+          <label class="label" for="question_email">Seu e-mail</label>
           <input class="email" type="email" name='question[email]' id='question_email' required>
         </div> 
         
@@ -29,14 +29,14 @@
         </div> 
         
         <div class="icon">
-          <label class="label" for="textarea">Description (details)</label>
+          <label class="label" for="textarea">Detalhes da sugestão.</label>
           <textarea class="message" type='text' name='question[description]' id='question_description'></textarea>
         </div>
         
         {{ captcha_verification }}
       
         <div>
-          <input type="submit" id='question_submit' name='commit' value="Contact Support" class="button">
+          <input type="submit" id='question_submit' name='commit' value="Enviar sugestão" class="button">
         </div>
         
         <!-- Want to add custom fields to your form (such as: account_id) and have them included when the user contacts support? Max three custom fields -->
