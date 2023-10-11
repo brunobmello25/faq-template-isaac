@@ -52,7 +52,7 @@
           </ul>
           <!-- top navigation -->
           <ul class="header_nav_links header_nav_section">
-            <li><a href="javascript:void(0);">PÃ¡gina inicial</a></li>
+            <li><a href="javascript:void(0);">Página inicial</a></li>
             <!--<li><a href="/">Support</a></li>-->
           </ul>
         </div>
@@ -63,7 +63,7 @@
         {% endif %}
         <div class="search_block header_nav_section">
           <form autocomplete="off">
-            <i class="licon-magnifier"></i><input id="search" name="search" size="30" type="text" autocomplete="off" placeholder="Pesquise o que vocÃª precisa saber" />
+            <i class="licon-magnifier"></i><input id="search" name="search" size="30" type="text" autocomplete="off" placeholder="Pesquise o que você precisa saber" />
           </form>
         </div>
         <p class="common-searches">Artigos em alta:
@@ -101,9 +101,9 @@
                   
                     <fieldset>
                     
-                      <legend>Que tal sugerir esse conteÃºdo para gente.</legend>
+                      <legend>Que tal sugerir esse conteúdo para gente.</legend>
                       
-                      <p>Ao enviar sua sugestÃ£o, vocÃª ajuda a aprimorar a Central de Ajuda da Plataforma isaac!</p>
+                      <p>Ao enviar sua sugestão, você ajuda a aprimorar a Central de Ajuda da Plataforma isaac!</p>
                       
                       <!-- Don't modify or delete this below -->
                       {{csrf_token}}
@@ -115,19 +115,19 @@
                       </div> 
                         
                       <div class="icon">
-                        <label class="label" for="question_name">Tema de sugestÃ£o</label>
+                        <label class="label" for="question_name">Tema de sugestão</label>
                         <input type="text" class="message" placeholder='' name='question[name]' id='question_name' required>
                       </div> 
                         
                       <div class="icon">
-                        <label class="label" for="textarea">Detalhes da sugestÃ£o.</label>
+                        <label class="label" for="textarea">Detalhes da sugestão.</label>
                         <textarea class="message" type='text' name='question[description]' id='question_description'></textarea>
                       </div>
                       
                       {{ captcha_verification }}
                       
                       <div>
-                        <input type="submit" id='question_submit' name='commit' value="Enviar sugestÃ£o" class="button">
+                        <input type="submit" id='question_submit' name='commit' value="Enviar sugestão" class="button">
                       </div>
                       
                     </fieldset>
@@ -195,9 +195,9 @@
     
     <section class="contact_us_section">
       <div class="wrapper">
-        <h1>NÃ£o encontrou o que procurava?</h1>
-        <p>Que tal sugerir este conteÃºdo pra gente?</p>
-        <a href="/contact-us?contact_query=Please%20enter%20your%20question" class="button">Enviar sugestÃ£o</a>
+        <h1>Não encontrou o que procurava?</h1>
+        <p>Que tal sugerir este conteúdo pra gente?</p>
+        <a href="/contact-us?contact_query=Please%20enter%20your%20question" class="button">Enviar sugestão</a>
       </div>
     </section>
 

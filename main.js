@@ -548,7 +548,7 @@
 
                 search_heading.html('');
                 if (data.length === 0) {
-                    search_heading.html('Que tal sugerir esse conteÃºdo para gente?' + safeValue + '');
+                    search_heading.html('Que tal sugerir esse conteúdo para gente?' + safeValue + '');
                     append_category(search_heading)
                     results.addClass('hidden');
                     no_results.removeClass('hidden');
@@ -570,7 +570,7 @@
                             result.last_published_user_name != "" && result.last_published_user_name != null &&
                             result.last_published_date != "" && result.last_published_date != null ) {
                              last_published.append(result.last_published_avatar);
-                             last_published.append("Ãšltima atualizaÃ§Ã£o: " + result.last_published_date + ", por  " + result.last_published_user_name);
+                             last_published.append("Última atualização: " + result.last_published_date + ", por  " + result.last_published_user_name);
                         }
 
                         $('p', result_obj).text(result.answer_sample + '...');
