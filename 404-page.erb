@@ -6,10 +6,11 @@
 
     body{
       line-height: 2.2em;
-      background: #44a4f8;
+      background: #f1f1f1;
       font-family: Helvetica, Arial, Verdana;
       padding: 0px;
       margin: 0px;
+      position: relative;
     }
 
     .error{
@@ -71,33 +72,53 @@
     .text-large {
       font-size: 24px;
     }
+    
+    .logo{
+        margin-bottom: 50px;
+    }
+    
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        margin-top: 200px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .graphism{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    
+    h1{
+        color: #3d4ed7;
+        font-size: 24px
+    }
+    
+    a{
+        color: #3d4ed7;
+        text-decoration: none;
+    }
+    
+    @media screen and (max-width: 768px){
+        body{
+            margin-top: 0;
+            height: 100%;
+        }
+    }
   </style>
 </head>
 <body class="error_body" cz-shortcut-listen="true">
-  <div class="status">404</div>
-
-  <div class="error">
-    <div class="text">
-    <h1>4o’4!</h1>
-    <p>
-      We could not find what you're looking for.
-    </p>
-
-    {% if questions %}
-      <p>Maybe you are looking for this page?</p>
-
-      <ul>
-        {% for question in questions %}
-          <li><a href="{{ question.url }}" class="text-large">{{ question.name }}</a></li>
-        {% endfor %}
-      </ul>
-
-      <p>Or you can go back to <a href="/">Home Page</a></p>
-    {% else %}
-      <p>Go back to <a href="/">Home Page</a></p>
-    {% endif %}
+    
+    <div class="wrapper">
+        <img src="https://static.helpjuice.com/helpjuice_production/uploads/template/brand_image/16203/22885/61427d209557504611094c1e_logo_isaac_azul__1_.svg" class="logo"/>
+        
+        <h1>Página não encontrada</h1>
+        <h3>Não foi possível encontrar a página solicitada.</h3>
+        <a href="/">Voltar para o inicio</a>
     </div>
-  </div>
+    <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/16203/3559777/1697486765683-graphism.png"/ class="graphism">
 </body>
 </html>
 
