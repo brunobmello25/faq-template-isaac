@@ -1524,16 +1524,16 @@ body {
 
 @media only screen and (min-width:570px) {
     .search_block input::-webkit-input-placeholder {
-        color: #ccc
+        color: #999999
     }
     .search_block input:-moz-placeholder {
-        color: #ccc
+        color: #999999
     }
     .search_block input::-moz-placeholder {
-        color: #ccc
+        color: #999999
     }
     .search_block input:-ms-input-placeholder {
-        color: #ccc
+        color: #999999
     }
     .category_page .header .search_block,
     .question_page .header .search_block,
@@ -1767,7 +1767,7 @@ body {
 .breadcrumbs span {
     font-size: 14px;
     text-align: left;
-    color: #33a0dd;
+    color: #3D4ED7;
 }
 
 .breadcrumbs span:last-child {
