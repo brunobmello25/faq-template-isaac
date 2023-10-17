@@ -529,7 +529,7 @@
             page_content.hide();
             results_list.html('');
             search_results.show();
-            search_heading.html('Searching for &#8220;<span class="highlight">' + safeValue + '</span>&#8221;');
+            search_heading.html('Procurando por &#8220;<span class="highlight">' + safeValue + '</span>&#8221;');
             search_heading.append('<img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/1856/14890/ajax-loader.gif" class="search-activity-indicator" />')
             var search_params = {
                 query: value
