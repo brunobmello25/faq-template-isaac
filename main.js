@@ -548,7 +548,7 @@
 
                 search_heading.html('');
                 if (data.length === 0) {
-                    search_heading.html('Poxa, tivemos 0 resultados para "' + safeValue + '"');
+                    search_heading.html('Poxa, tivemos 0 resultados para "' + safeValue + '"...');
                     append_category(search_heading)
                     results.addClass('hidden');
                     no_results.removeClass('hidden');
