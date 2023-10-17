@@ -4,7 +4,7 @@
     {% for category in roots_categories %}
       <li class="rounded kb">
         <a href="{{ category.url }}">
-          <span class="category_icon icon-{{ category.name | downcase | remove:'?' | remove:',' | remove:'.' | remove:':' | remove:';' | replace:' ','-' | replace:"'",'' | replace:'&','and' }}"></span>
+            {{ category.category_icon_or_image }}
           <h5>{{ category.name }}</h5>
           
             {% if category.description.size > 0 %}

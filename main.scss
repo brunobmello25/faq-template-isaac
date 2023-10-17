@@ -3856,3 +3856,16 @@ article,
     }
 }
 
+.landing_page {
+    .common-questions {
+        .rounded.kb {
+            a {
+                img {
+                    position: absolute;
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}

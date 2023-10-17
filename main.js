@@ -944,3 +944,12 @@ $(document).ready(function() {
      $(this).parent().parent().removeClass('active');
   });
 });
+
+/*======= Set the default icon to the Q&A icon instead of the folder icon =======*/
+const folderIcon = document.querySelectorAll(".landing_page .common-questions .rounded.kb span .far.fa-folder");
+
+if(folderIcon) {
+    folderIcon.forEach(folder => {
+        folder.parentElement.innerHTML = `<span class="category_icon icon-{{ category.name | downcase | remove:'?' | remove:',' | remove:'.' | remove:':' | remove:';' | replace:' ','-' | replace:"'",'' | replace:'&','and' }}"></span>`;
+    });
+}
