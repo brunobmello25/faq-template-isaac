@@ -1146,7 +1146,6 @@ body {
     list-style-type: none;
     margin: 62px 0 0;
     padding: 0;
-    text-transform: uppercase;
     font-weight: 700;
     font-size: 16px;
     line-height: 22px
@@ -1281,7 +1280,7 @@ body {
         padding: 0 1em;
         color: #4c4c4c;
         font-weight: 500;
-        font-size: 13px;
+        font-size: 14px;
         letter-spacing: 1px;
         background-repeat: no-repeat;
         background-position: center 3.8em
@@ -1358,7 +1357,6 @@ body {
     max-width: 200px;
     text-align: center;
     font: inherit;
-    text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 1px;
     font-weight: 500;
@@ -1379,6 +1377,7 @@ body {
 
 .button:hover {
   background-color: #2636B7;
+  text-decoration: none;
 }
 
 .button:active {

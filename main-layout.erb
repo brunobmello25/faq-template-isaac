@@ -66,11 +66,6 @@
             <i class="licon-magnifier"></i><input id="search" name="search" size="30" type="text" autocomplete="off" placeholder="Pesquise o que você precisa saber" />
           </form>
         </div>
-        <p class="common-searches">Artigos em alta:
-        {% for question in top_questions limit: 2 %}
-          <a href="{{ question.url }}">{{ question.name }}</a>;
-        {% endfor %}
-        </p>
       </div>
     </header>
 
