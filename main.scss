@@ -2529,8 +2529,8 @@ pre {
     padding: 20px 0 0 0
 }
 
-.search-results .page_title {
-    padding: 25px 0 0 0;
+#search_results .page_title {
+    padding: 32px 0 0 0;
 }
 
 .page_title {
@@ -2665,8 +2665,9 @@ pre {
 .form legend {
     padding-bottom: 10px;
     margin-bottom: 20px;
-    font-size: 2rem;
-    border-bottom: 1px solid #ecf0f1
+    font-size: 1.75em;
+    border-bottom: 1px solid #ecf0f1;
+    color: #414141;
 }
 
 .form div {
