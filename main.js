@@ -544,7 +544,6 @@
                 var result;
                 var result_obj;
                 var result_anchor;
-                var last_published;
 
                 search_heading.html('');
                 if (data.length === 0) {
@@ -561,17 +560,10 @@
                     for (var i = 0, l = data.length; i < l; i++) {
                         result = data[i].question;
                         result_obj = $("<li class=\"list_item\"><h2 class=\"list_heading text_impact\"><a></a></h2>" +
-                            "<i class=\"arrow-right\"></i><p class=\"list_content\"></p><div class=\"avatars\"></div><span></span></li>  ");
+                            "<i class=\"arrow-right\"></i><p class=\"list_content\"></p><span></span></li>  ");
                         result_anchor = $('a', result_obj);
                         result_anchor.text(result.name);
                         result_anchor.attr('href', result.url);
-                        last_published = $('div', result_obj);
-                        if (result.last_published_avatar != "" && result.last_published_avatar != null &&
-                            result.last_published_user_name != "" && result.last_published_user_name != null &&
-                            result.last_published_date != "" && result.last_published_date != null ) {
-                             last_published.append(result.last_published_avatar);
-                             last_published.append("Última atualização: " + result.last_published_date + ", por  " + result.last_published_user_name);
-                        }
 
                         $('p', result_obj).text(result.answer_sample + '...');
                         results_list.append(result_obj);
